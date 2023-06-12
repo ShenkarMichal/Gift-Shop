@@ -1,3 +1,4 @@
+import { AudienceModel, IAudienceModel } from "../4-models/audience-model";
 import { ValidateErrorModel } from "../4-models/errors-model";
 import { GiftModel, IGiftModel } from "../4-models/gift-model";
 
@@ -11,7 +12,12 @@ function addGift(gift: IGiftModel): Promise<IGiftModel> {
     return gift.save()
 }
 
+function getAllAudience(): Promise<IAudienceModel[]> {
+    return AudienceModel.find().exec()
+}
+
 export default {
     getAllGifts,
-    addGift
+    addGift,
+    getAllAudience
 }

@@ -15,6 +15,17 @@ router.get("/gifts",async (request:Request, response: Response, next: NextFuncti
     }    
 })
 
+//Get all audience:
+router.get("/audience",async (request:Request, response: Response, next: NextFunction) => {
+    try {
+        const audience = await giftsLogic.getAllAudience()
+        response.json(audience)    
+    }
+    catch (err: any) {
+        next(err)        
+    }    
+})
+
 //Add new gift:
 router.post("/gifts/new",async (request:Request, response: Response, next: NextFunction) => {
     try {
