@@ -16,8 +16,14 @@ function getAllAudience(): Promise<IAudienceModel[]> {
     return AudienceModel.find().exec()
 }
 
+function getGiftByAudience(audienceId:string): Promise<IGiftModel[]> {
+    return GiftModel.find({audienceId}).populate("Audience").exec()
+    
+}
+
 export default {
     getAllGifts,
     addGift,
-    getAllAudience
+    getAllAudience,
+    getGiftByAudience
 }

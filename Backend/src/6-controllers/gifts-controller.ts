@@ -26,6 +26,18 @@ router.get("/audience",async (request:Request, response: Response, next: NextFun
     }    
 })
 
+//Get gift by audience:
+router.get("/gifts/:audienceId",async (request:Request, response: Response, next: NextFunction) => {
+    try {
+        const audienceId = request.params.audienceId
+        const gifts = await giftsLogic.getGiftByAudience(audienceId)
+        response.json(gifts)    
+    }
+    catch (err: any) {
+        next(err)        
+    }    
+})
+
 //Add new gift:
 router.post("/gifts/new",async (request:Request, response: Response, next: NextFunction) => {
     try {
