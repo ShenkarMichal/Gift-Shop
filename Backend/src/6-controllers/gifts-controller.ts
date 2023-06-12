@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express'
 import giftsLogic from '../5-logics/gifts-logic'
+import { GiftModel } from '../4-models/gift-model'
 
 const router = express.Router()
 
@@ -8,6 +9,18 @@ router.get("/gifts",async (request:Request, response: Response, next: NextFuncti
     try {
         const gifts = await giftsLogic.getAllGifts()
         response.json(gifts)    
+    }
+    catch (err: any) {
+        next(err)        
+    }    
+})
+
+//Add new gift:
+router.post("/gifts/new",async (request:Request, response: Response, next: NextFunction) => {
+    try {
+        const gift = new GiftModel(request.body)
+        const newGift = await giftsLogic.addGift(gift)
+        response.status(201).json(newGift)    
     }
     catch (err: any) {
         next(err)        
