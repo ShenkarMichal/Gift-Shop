@@ -1,0 +1,26 @@
+div{
+    margin: auto;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+input, select{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 20px;
+}
+
+button {
+    border-radius: 2px;
+    padding: 10px;
+    font-size: large;
+    background-color: rgba(112, 233, 124, 0.381);
+    color: white;
+    border: 1px white solid;
+}
+

@@ -1,1 +1,25 @@
-<p>add works!</p>
+<div>
+
+    <form (ngSubmit)="send()" #addGiftForm>
+
+        <label>Audience:</label>
+        <select name="audience" [(ngModel)]="newGift.audienceId">
+            <option selected disabled value="">Select Audience</option>
+            <option *ngFor="let a of audience" value={{a._id}}>{{a.type}}</option>
+        </select>
+
+        <label>Name:</label>
+        <input type="text" [(ngModel)]="newGift.name" name="name"/> <br/>
+
+        <label>Description:</label>
+        <input type="text" [(ngModel)]="newGift.description" name="description"/> <br/>
+
+        <label>Price($):</label>
+        <input type="number" [(ngModel)]="newGift.price" name="price"/> <br/>
+
+        <label>Discount(%):</label>
+        <input type="number" [(ngModel)]="newGift.discount" name="discount"/> <br/>
+
+        <button>Add Gift</button>
+    </form>
+</div>

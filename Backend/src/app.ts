@@ -13,11 +13,11 @@ dal.connect()
 const server = express()
 
 server.use("/api/", expressRateLimit({
-    max: 1,
+    max: 2,
     windowMs: 1000
 }))
 
-server.use(cors({origin: appConfig.frontEndUrl}))
+server.use(cors())
 
 server.use(express.json())
 
