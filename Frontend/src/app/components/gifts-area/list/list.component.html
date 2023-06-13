@@ -1,4 +1,4 @@
 <div>
-    <app-card *ngFor="let g of gifts" [gift]="g"></app-card>
+    <app-card *ngFor="let g of gifts" [gift]="g" (cardDelete)="handleCardDelete($event)"></app-card>
 </div>
 

@@ -50,5 +50,17 @@ router.post("/gifts",async (request:Request, response: Response, next: NextFunct
     }    
 })
 
+//Delete gift:
+router.delete("/gifts/:_id",async (request:Request, response: Response, next: NextFunction) => {
+    try {
+        const _id = request.params._id
+        await giftsLogic.deleteGift(_id)
+        response.sendStatus(204)
+    }
+    catch (err: any) {
+        next(err)        
+    }    
+})
+
 
 export default router

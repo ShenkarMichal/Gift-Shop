@@ -32,4 +32,11 @@ export class GiftsServiceService {
 
     return audience
   }
+
+  public async deleteGift(_id: string): Promise<void> {
+    console.log(_id)
+
+    const observable = this.http.delete<void>(appConfig.giftURL + _id)
+    await firstValueFrom(observable)
+  }
 }

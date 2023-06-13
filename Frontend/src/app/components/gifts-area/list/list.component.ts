@@ -18,10 +18,13 @@ export class ListComponent implements OnInit{
 		try {
 			this.gifts = await this.giftService.getAllGifts()
 
-		} catch (err: any) {
+		} catch (err: any) { 
 			console.log(err)
-		}
-		
+		}		
+	}
+
+	public handleCardDelete(_id: string): void {
+		this.gifts = this.gifts.filter(g => g._id !== _id)
 	}
 
 }

@@ -1,5 +1,5 @@
 import { AudienceModel, IAudienceModel } from "../4-models/audience-model";
-import { ValidateErrorModel } from "../4-models/errors-model";
+import { ResourceNotFoundErrorModel, ValidateErrorModel } from "../4-models/errors-model";
 import { GiftModel, IGiftModel } from "../4-models/gift-model";
 
 function getAllGifts(): Promise<IGiftModel[]> {
@@ -21,9 +21,16 @@ function getGiftByAudience(audienceId:string): Promise<IGiftModel[]> {
     
 }
 
+async function deleteGift(_id: string): Promise<void> {
+    const deleteGift = await GiftModel.findByIdAndDelete(_id)
+    if(!deleteGift) throw new ResourceNotFoundErrorModel(_id)
+
+}
+
 export default {
     getAllGifts,
     addGift,
     getAllAudience,
-    getGiftByAudience
+    getGiftByAudience,
+    deleteGift
 }
