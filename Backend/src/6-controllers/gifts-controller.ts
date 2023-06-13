@@ -39,7 +39,7 @@ router.get("/gifts/:audienceId",async (request:Request, response: Response, next
 })
 
 //Add new gift:
-router.post("/gifts/new",async (request:Request, response: Response, next: NextFunction) => {
+router.post("/gifts",async (request:Request, response: Response, next: NextFunction) => {
     try {
         const gift = new GiftModel(request.body)
         const newGift = await giftsLogic.addGift(gift)

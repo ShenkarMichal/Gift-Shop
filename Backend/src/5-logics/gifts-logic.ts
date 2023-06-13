@@ -3,7 +3,7 @@ import { ValidateErrorModel } from "../4-models/errors-model";
 import { GiftModel, IGiftModel } from "../4-models/gift-model";
 
 function getAllGifts(): Promise<IGiftModel[]> {
-    return GiftModel.find().exec()
+    return GiftModel.find().populate("Audience").exec()
 }
 
 function addGift(gift: IGiftModel): Promise<IGiftModel> {
