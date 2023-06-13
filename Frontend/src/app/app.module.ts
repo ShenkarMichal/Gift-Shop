@@ -8,6 +8,8 @@ import { FooterComponent } from './components/layout-area/footer/footer.componen
 import { MainComponent } from './components/layout-area/main/main.component';
 import { MenuComponent } from './components/layout-area/menu/menu.component';
 import { PageNotFoundComponent } from './components/layout-area/page-not-found/page-not-found.component';
+import { ListComponent } from './components/gifts-area/list/list.component';
+import { AddComponent } from './components/gifts-area/add/add.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { PageNotFoundComponent } from './components/layout-area/page-not-found/p
     FooterComponent,
     MainComponent,
     MenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ListComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
